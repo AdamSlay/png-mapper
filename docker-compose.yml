@@ -1,0 +1,12 @@
+version: "3"
+services:
+  png-mapper:
+    build:
+      dockerfile: png-mapper/Dockerfile
+      context: ..
+    volumes:
+      - type: bind
+        source: ./
+        target: /src
+    entrypoint: /bin/sh
+    command: ["-c", "cd src/ && sh ./build.sh"]
